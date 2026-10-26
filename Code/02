@@ -1,7 +1,0 @@
-# R code for population density
-
-# Installing packages
-install.packages("spatstat")
-
-# Using packages
-library(spatstat)
