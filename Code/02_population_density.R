@@ -1,21 +1,14 @@
 # R code for population density
 
-# Installing packages
-# intsall.packages("spatstat")
-
-# Using the package(s)
+#intsall.packages("spatstat")
 library(spatstat)
 
-# Recall the data
+# Recall  data
 bei
 
 # Looking at the points in space
 plot(bei)
-
-# Changing the pch
 plot(bei, pch=15)
-
-# Decreasing the dimension
 plot(bei, pch=15, cex=.5)
 
 # Drivers
@@ -26,33 +19,20 @@ plot(bei.extra)
 
 # Subsetting a dataset: NEW CONCEPT!
 # There are two different methods to make a subset:
+
 # first: name of the variable and the $ symbol
-# second: number of the layer and [] for tables, [[]] for map layers
-
 elevation <- bei.extra$elev
-# output
-elevation
-
-# Plot elevation
 plot(elevation)
+points(bei, pch=15, cex=.5)
 
-# Subset by the number of the layer/variable
+# second: subset by the number of the layer [] for tables, and [[]] for map layers
 elevation2 <- bei.extra[[1]]
-
-# In case bei.extra was a table: bei.extra[1]
-
-# Plot the new object
 plot(elevation2)
+# In case bei.extra was a table: bei.extra[1]
 
 # Creating our first map!
 densitymap <- density(bei)
-
-# Output
-densitymap
-
-# Plot the result
 plot(densitymap)
-
 # Plotting the points ontop of the density map
 points(bei, cex=.5)
 
@@ -67,14 +47,7 @@ par(mfrow=c(2,1))
 plot(elevation)
 plot(densitymap)
 
-# If you get any graphical ussue here is your friend:
-# dev.off()
-
-# Change colors in our maps
-cl <- colorRampPalette(c("blue", "green", "red"))
-
-# Plot the density map and change its color thanks to cl
-plot(densitymap, col=cl)
+# If you get any graphical issue here is your friend: dev.off()
 
 # Change colors in our maps
 cl <- colorRampPalette(c("magenta1", "green", "mediumpurple"))
@@ -95,5 +68,4 @@ par(mfrow=c(2,1))
 plot(densitymap, col=cl10)
 plot(densitymap, col=cl100)
 
-# R colors are here:
-# https://r-charts.com/colors/
+
